@@ -51,3 +51,11 @@ class TestModifyTasks:
         task.set_name(new_name)
         
         assert task.get_name() == new_name
+        
+class TestModifyGroups:
+    def test_edit_group_name(self):
+        group = Group("Bad name")
+        new_name = "Good name"     
+        group.set_name(new_name)
+        
+        assert group.get_name() == new_name
