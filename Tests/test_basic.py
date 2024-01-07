@@ -19,3 +19,19 @@ class TestMoveTasks:
         new_task.set_group(new_group)
         assert new_group.get_tasks() == [new_task]
         assert new_task.get_group() == new_group
+    
+    def test_remove_task(self):
+        new_task = Task("Don't take 2 hours just to get pytest running")
+        
+        possible_group = Group("Possible tasks")
+        impossible_group = Group("Impossible tasks")
+        
+        new_task.set_group(possible_group)
+        
+        # Hours later
+        
+        new_task.set_group(impossible_group)
+        
+        assert new_task.get_group() == impossible_group
+        assert possible_group.get_tasks() == []
+        assert impossible_group.get_tasks() == [new_task]
