@@ -3,6 +3,11 @@ class Task:
         self.name = name
         self.group = group
         
+    def delete(self):
+        if self.group:
+            self.group.remove_task(self)
+        self.group = None
+        
     """Getters and setters"""
     
     def get_name(self):
