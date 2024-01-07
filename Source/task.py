@@ -15,5 +15,8 @@ class Task:
         return self.group
     
     def set_group(self, new_group):
-        # This will be added to once the group class is created
+        old_group = self.group
+        if old_group:
+            old_group.remove_task(self)
         self.group = new_group
+        new_group.add_task(self)
